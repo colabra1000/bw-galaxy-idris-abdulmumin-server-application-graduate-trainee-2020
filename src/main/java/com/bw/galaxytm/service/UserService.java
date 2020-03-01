@@ -3,16 +3,16 @@ package com.bw.galaxytm.service;
 import java.util.List;
 import java.util.Optional;
 
-import com.bw.galaxytm.entity.User;
+import com.bw.galaxytm.entity.User1;
 
 public interface UserService {
-	User saveUser(User user);
+	User1 saveUser(User1 user);
 	
-	User updateUser(User user);
+	User1 updateUser(User1 user);
 	
-	List<User>getAllUserList();
+	List<User1>getAllUserList();
 	
-	Optional<User> getUser(Long userId);
+	Optional<User1> getUser(Long userId);
 	
 	void deleteUser(Long userId);
 	

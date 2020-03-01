@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bw.galaxytm.entity.User;
+import com.bw.galaxytm.entity.User1;
 import com.bw.galaxytm.service.UserService;
 
 @RequestMapping("user")
@@ -25,23 +25,23 @@ public class UserController {
 	private UserService userService;
 	
 	@PostMapping("/save")
-	public User save(@RequestBody User user) {
+	public User1 save(@RequestBody User1 user) {
 		return userService.saveUser(user);
 	}
 	
 	@PutMapping("/update")
-	public User update(@RequestBody User user) {
+	public User1 update(@RequestBody User1 user) {
 		return userService.updateUser(user);
 	}
 	
 	@GetMapping("/all")
-	public List<User> getAlluser() {
+	public List<User1> getAlluser() {
 		return userService.getAllUserList();
 	}
 	
 	@CrossOrigin(origins = "http://localhost:8081")
 	@GetMapping("/by/{userId}")
-	public Optional<User> getuser(@PathVariable(name= "userId") Long userId) {
+	public Optional<User1> getuser(@PathVariable(name= "userId") Long userId) {
 		return userService.getUser(userId);
 	}
 	
