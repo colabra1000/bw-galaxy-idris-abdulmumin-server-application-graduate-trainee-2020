@@ -15,14 +15,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bw.galaxytm.entity.User1;
-import com.bw.galaxytm.service.UserService;
+import com.bw.galaxytm.service.User1Service;
 
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("user")
 @RestController
 public class UserController {
 	
 	@Autowired
-	private UserService userService;
+	private User1Service userService;
 	
 	@PostMapping("/save")
 	public User1 save(@RequestBody User1 user) {

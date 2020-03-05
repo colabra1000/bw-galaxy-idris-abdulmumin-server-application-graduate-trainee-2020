@@ -3,7 +3,9 @@ package com.bw.galaxytm.service.impl;
 import java.util.List;
 import java.util.Optional;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import com.bw.galaxytm.dao.TaskDao;
@@ -44,6 +46,11 @@ public class TaskServiceImpl implements TaskService {
 	public void deleteTask(Long taskId) {
 		// TODO Auto-generated method stub
 		TaskDao.deleteById(taskId);
+	}
+
+	@Override
+	public List<Task> findByOwner(Long userId) {
+		return TaskDao.findByOwner(userId);
 	}
 
 }
