@@ -24,10 +24,9 @@ import com.bw.galaxytm.entity.ERole;
 import com.bw.galaxytm.entity.Role;
 import com.bw.galaxytm.entity.Task;
 import com.bw.galaxytm.entity.User;
-import com.bw.galaxytm.entity.User1;
+
 import com.bw.galaxytm.service.impl.RoleServiceImpl;
 import com.bw.galaxytm.service.impl.TaskServiceImpl;
-import com.bw.galaxytm.service.impl.User1ServiceImpl;
 import com.bw.galaxytm.service.impl.UserServiceImpl;
 
 @SpringBootApplication
@@ -103,7 +102,7 @@ public class GalaxytmApplication implements CommandLineRunner {
 //		return new WebMvcConfigurer() {
 //			@Override
 //			public void addCorsMappings(CorsRegistry registry) {
-//				registry.addMapping("/**").allowedOrigins("");
+//				registry.addMapping("/**").allowedOrigins("*");
 //			}
 //		};
 //	}

@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bw.galaxytm.dao.RoleRepository;
+import com.bw.galaxytm.dao.RoleDoa;
 import com.bw.galaxytm.entity.Role;
 import com.bw.galaxytm.service.RoleService;
 
@@ -14,7 +14,7 @@ import com.bw.galaxytm.service.RoleService;
 public class RoleServiceImpl implements RoleService {
 
 	@Autowired
-	private RoleRepository roleRepository;
+	private RoleDoa roleRepository;
 
 	@Override
 	public Role saveRole(Role role) {

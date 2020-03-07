@@ -9,10 +9,12 @@ import com.bw.galaxytm.entity.User;
 
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface UserDoa extends JpaRepository<User, Long> {
 	Optional<User> findByUsername(String username);
 	
 	Boolean existsByUsername(String username);
 	
 	Boolean existsByEmail(String email);
+	
+	
 }

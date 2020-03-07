@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.bw.galaxytm.dao.UserRepository;
+import com.bw.galaxytm.dao.UserDoa;
 import com.bw.galaxytm.entity.User;
 
 
@@ -15,7 +15,7 @@ import com.bw.galaxytm.entity.User;
 public class UserDetailsServiceImpl implements UserDetailsService {
 
 	@Autowired
-	UserRepository userRepository;
+	UserDoa userRepository;
 	
 	@Override
 	@Transactional

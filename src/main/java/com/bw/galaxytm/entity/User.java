@@ -81,11 +81,6 @@ public class User {
 		return "USER";
 	}
 
-	
-//	public List<Task> getTasks() {
-//		return tasks;
-//	}
-
 	public User() {
 		
 	}

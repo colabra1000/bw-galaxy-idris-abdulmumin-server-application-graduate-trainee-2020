@@ -1,19 +1,12 @@
 package com.bw.galaxytm.entity;
 
-import java.util.Optional;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Transient;
-
-import org.springframework.beans.factory.annotation.Autowired;
-
-import com.bw.galaxytm.dao.UserRepository;
-import com.bw.galaxytm.service.impl.UserServiceImpl;
 
 @Entity
 public class Task {
@@ -29,7 +22,7 @@ public class Task {
 	private Long owner;
 	
 	@Column(nullable = true)
-	private String created_on = "";
+	private String created_on = String.valueOf(new Date().getTime());
 //	private String due_date;
 	
 	public String getCreated_on() {

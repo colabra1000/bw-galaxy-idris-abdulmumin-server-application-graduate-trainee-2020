@@ -10,6 +10,6 @@ import com.bw.galaxytm.entity.Role;
 
 
 @Repository
-public interface RoleRepository extends JpaRepository<Role, Long> {
+public interface RoleDoa extends JpaRepository<Role, Long> {
 	Optional<Role> findByName(ERole name);
 }

@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bw.galaxytm.dao.UserRepository;
+import com.bw.galaxytm.dao.UserDoa;
 import com.bw.galaxytm.entity.User;
 import com.bw.galaxytm.service.UserService;
 
@@ -20,7 +20,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Autowired
-	private UserRepository userRepository;
+	private UserDoa userRepository;
 
 	@Override
 	public List<User> getAllUsers() {

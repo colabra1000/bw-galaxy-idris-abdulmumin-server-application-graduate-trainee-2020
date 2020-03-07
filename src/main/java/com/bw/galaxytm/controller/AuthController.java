@@ -21,8 +21,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bw.galaxytm.dao.RoleRepository;
-import com.bw.galaxytm.dao.UserRepository;
+import com.bw.galaxytm.dao.RoleDoa;
+import com.bw.galaxytm.dao.UserDoa;
 import com.bw.galaxytm.entity.ERole;
 import com.bw.galaxytm.entity.Role;
 import com.bw.galaxytm.entity.User;
@@ -45,10 +45,10 @@ public class AuthController {
 	AuthenticationManager authenticationManager;
 
 	@Autowired
-	UserRepository userRepository;
+	UserDoa userRepository;
 
 	@Autowired
-	RoleRepository roleRepository;
+	RoleDoa roleRepository;
 
 	@Autowired
 	PasswordEncoder encoder;
