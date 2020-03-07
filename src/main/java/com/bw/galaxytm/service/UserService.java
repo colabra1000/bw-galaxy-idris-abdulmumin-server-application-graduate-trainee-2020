@@ -7,11 +7,11 @@ import com.bw.galaxytm.entity.User;
 
 public interface UserService {
 	
-	User saveUser(User user);
-	
-	List<User>getAllUserList();
+	List<User>getAllUsers();
 	
 	Optional<User> getUser(Long userId);
+	
+	User saveUser(User user);
 	
 	
 }

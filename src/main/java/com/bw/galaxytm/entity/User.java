@@ -17,10 +17,13 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(	name = "users", 
@@ -29,6 +32,7 @@ import javax.validation.constraints.Size;
 			@UniqueConstraint(columnNames = "email") 
 		})
 public class User {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -42,28 +46,48 @@ public class User {
 	@Email
 	private String email;
 
+	@JsonIgnoreProperties
 	@NotBlank
 	@Size(max = 120)
 	private String password;
+	
 	
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(	name = "user_roles", 
 				joinColumns = @JoinColumn(name = "user_id"), 
 				inverseJoinColumns = @JoinColumn(name = "role_id"))
+	@JsonIgnoreProperties
 	private Set<Role> roles = new HashSet<>();
 	
 	@OneToMany(mappedBy = "owner",
 			cascade = CascadeType.ALL,
 			orphanRemoval = true)
 	@Column(nullable = true)
+	@JsonIgnoreProperties
 	private List<Task> tasks = new ArrayList<Task>();
 	
-
-	public List<Task> getTasks() {
-		return tasks;
+	@Transient
+	private ERole eRole;
+	
+	@Transient
+	private String userRole;
+	
+	public String getUserRole() {
+		for(Role role: this.roles) {
+			if(role.getName() == eRole.ROLE_ADMIN) {
+				return "ADMIN";
+			}
+		}
+		return "USER";
 	}
 
+	
+//	public List<Task> getTasks() {
+//		return tasks;
+//	}
+
 	public User() {
+		
 	}
 	
 	public User(String username, String email, String password) {
@@ -107,13 +131,13 @@ public class User {
 	public String getPassword() {
 		return password;
 	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
+//
+//	public void setPassword(String password) {
+//		this.password = password;
+//	}
 
 	public Set<Role> getRoles() {
-		return roles;
+		return this.roles;
 	}
 
 	public void setRoles(Set<Role> roles) {

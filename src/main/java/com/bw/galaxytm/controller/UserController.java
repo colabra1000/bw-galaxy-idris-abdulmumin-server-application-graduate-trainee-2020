@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bw.galaxytm.entity.User1;
-import com.bw.galaxytm.service.User1Service;
+import com.bw.galaxytm.entity.User;
+import com.bw.galaxytm.service.UserService;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("user")
@@ -23,32 +23,17 @@ import com.bw.galaxytm.service.User1Service;
 public class UserController {
 	
 	@Autowired
-	private User1Service userService;
+	private UserService userService;
 	
-	@PostMapping("/save")
-	public User1 save(@RequestBody User1 user) {
-		return userService.saveUser(user);
-	}
-	
-	@PutMapping("/update")
-	public User1 update(@RequestBody User1 user) {
-		return userService.updateUser(user);
-	}
 	
 	@GetMapping("/all")
-	public List<User1> getAlluser() {
-		return userService.getAllUserList();
+	public List<User> getAlluser() {
+		return userService.getAllUsers();
 	}
 	
-	@CrossOrigin(origins = "http://localhost:8081")
 	@GetMapping("/by/{userId}")
-	public Optional<User1> getuser(@PathVariable(name= "userId") Long userId) {
+	public Optional<User> getuser(@PathVariable(name= "userId") Long userId) {
 		return userService.getUser(userId);
-	}
-	
-	@DeleteMapping("/delete/{userId}")
-	public void deleteuser(@PathVariable(name = "userId") Long userId) {
-		userService.deleteUser(userId);
 	}
 
 }

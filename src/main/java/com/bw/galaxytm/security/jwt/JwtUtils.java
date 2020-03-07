@@ -26,11 +26,16 @@ public class JwtUtils {
 		
 		UserDetailsImpl userPrincipal = (UserDetailsImpl) authentication.getPrincipal();
 		
+		Claims claims = Jwts.claims();
+		claims.put("id", userPrincipal.getId());
+		claims.put("username", userPrincipal.getUsername());
+		claims.put("role", userPrincipal.getUserRole());
+		
 		return Jwts.builder()
 				.setSubject((userPrincipal.getUsername()))
 				.setIssuedAt(new Date())
 				.setExpiration(new Date((new Date()).getTime() + jwtExpirationMs))
-				.signWith(SignatureAlgorithm.HS512, jwtSecret)
+				.signWith(SignatureAlgorithm.HS512, jwtSecret).addClaims(claims)
 				.compact();
 	}
 

@@ -13,17 +13,17 @@ import com.bw.galaxytm.service.UserService;
 @Service
 public class UserServiceImpl implements UserService {
 
-	@Autowired
-	private UserRepository userRepository;
-
 	@Override
 	public User saveUser(User user) {
 		// TODO Auto-generated method stub
 		return userRepository.save(user);
 	}
 
+	@Autowired
+	private UserRepository userRepository;
+
 	@Override
-	public List<User> getAllUserList() {
+	public List<User> getAllUsers() {
 		// TODO Auto-generated method stub
 		return userRepository.findAll();
 	}

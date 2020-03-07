@@ -1,14 +1,23 @@
 package com.bw.galaxytm.entity;
 
+import java.util.Optional;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.bw.galaxytm.dao.UserRepository;
+import com.bw.galaxytm.service.impl.UserServiceImpl;
 
 @Entity
 public class Task {
+	
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -43,6 +52,8 @@ public class Task {
 		this.owner = owner;
 	}
 
+
+
 	public Long getId() {
 		return id;
 	}
@@ -51,22 +62,21 @@ public class Task {
 		this.id = id;
 	}
 
-	public String getName() {
+	public String getDescription() {
 		return description;
 	}
 
-	public void setName(String description) {
+	public void setDescription(String description) {
 		this.description = description;
 	}
 
-	public String getShort_desc() {
+	public String getShort_description() {
 		return short_description;
 	}
 
-	public void setShort_desc(String short_description) {
+	public void setShort_description(String short_description) {
 		this.short_description = short_description;
 	}
-
 
 	public boolean isCompleted() {
 		return completed;
@@ -76,22 +86,13 @@ public class Task {
 		this.completed = completed;
 	}
 
-//	public User getOwner() {
-//		return owner;
-//	}
-
-//	public void setOwner(User owner) {
-//		this.owner = owner;
-//	}
-
-	@Override
-	public String toString() {
-		return "Task [id=" + id + ", description=" + description + ", short_description=" + short_description
-				+ ", completed=" + completed + ", owner=" + owner + "]";
+	public Long getOwner() {
+		return owner;
+			
 	}
 
+	public void setOwner(Long owner) {
+		this.owner = owner;
+	}
 	
-	
-	
-
 }

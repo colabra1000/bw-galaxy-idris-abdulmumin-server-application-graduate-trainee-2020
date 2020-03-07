@@ -81,9 +81,19 @@ public class GalaxytmApplication implements CommandLineRunner {
 		roles.add(role1);
 		roles.add(role2);
 		user = new User("admin", "admin@admin.com", encoder.encode("password"), roles);
-		userServiceImpl.saveUser(user);
+		user = userServiceImpl.saveUser(user);
+		
+		roles = new HashSet<Role>();
+		roles.add(role2);
+		
+		user = new User("user", "user@admin.com", encoder.encode("password"), roles);
+		user = userServiceImpl.saveUser(user);
+		
 		
 		task = new Task("description", "short description", false, 1L);
+		taskServiceImpl.saveTask(task);
+		
+		task = new Task("description", "short description", false, 2L);
 		taskServiceImpl.saveTask(task);
 				
 	}
