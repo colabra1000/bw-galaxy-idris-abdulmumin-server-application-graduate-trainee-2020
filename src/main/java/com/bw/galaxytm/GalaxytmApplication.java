@@ -18,7 +18,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.bw.galaxytm.entity.ERole;
 import com.bw.galaxytm.entity.Role;
@@ -32,16 +31,7 @@ import com.bw.galaxytm.service.impl.UserServiceImpl;
 @SpringBootApplication
 //@RestController
 public class GalaxytmApplication implements CommandLineRunner {
-	
-//	private Logger logger = LoggerFactory.getLogger(this.getClass());
-	
-//	@Autowired
-//	private UserServiceImpl userServiceImpl;
-//	private User1 user;
-//	
-//	@Autowired
-//	private TaskServiceImpl taskServiceImpl;
-//	private Task task;
+
 	@Autowired
 	PasswordEncoder encoder;
 	
@@ -89,7 +79,7 @@ public class GalaxytmApplication implements CommandLineRunner {
 		user = userServiceImpl.saveUser(user);
 		
 		
-		task = new Task("description", "short description", false, 1L);
+		task = new Task("description", "short description", false, 2L);
 		taskServiceImpl.saveTask(task);
 		
 		task = new Task("description", "short description", false, 2L);
