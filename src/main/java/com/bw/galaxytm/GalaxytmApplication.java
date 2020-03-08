@@ -1,6 +1,6 @@
 package com.bw.galaxytm;
 
-import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -79,10 +79,12 @@ public class GalaxytmApplication implements CommandLineRunner {
 		user = userServiceImpl.saveUser(user);
 		
 		
-		task = new Task("description", "short description", false, 2L);
+		task = new Task("", "short description for task 1", false, 2L);
+		task.setCreated_on(String.valueOf(new Date().getTime()));
 		taskServiceImpl.saveTask(task);
 		
-		task = new Task("description", "short description", false, 2L);
+		task = new Task("lorem ipsum donor lamaysiya this is a verbouse text for the task and its optional", "short description for task 2", false, 2L);
+		task.setCreated_on(String.valueOf(new Date().getTime()));
 		taskServiceImpl.saveTask(task);
 				
 	}
